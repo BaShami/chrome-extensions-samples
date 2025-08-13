@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scraper & Webhook Sender</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕷️ Data Scraper</h1>
+            <p>Extract data and send to webhooks</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="scrape">Scrape</button>
+            <button class="tab-button" data-tab="settings">Settings</button>
+            <button class="tab-button" data-tab="logs">Logs</button>
+        </div>
+
+        <!-- Scrape Tab -->
+        <div id="scrape-tab" class="tab-content active">
+            <div class="action-section">
+                <button id="scrape-button" class="primary-button">
+                    🚀 Scrape Current Page
+                </button>
+                <div id="scrape-status" class="status-message"></div>
+            </div>
+
+            <div class="preview-section">
+                <h3>Preview Data</h3>
+                <div id="data-preview" class="preview-box">
+                    <p class="placeholder">Click "Scrape Current Page" to see data preview</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content">
+            <div class="settings-section">
+                <h3>Webhook Configuration</h3>
+                <div class="form-group">
+                    <label for="webhook-url">Webhook URL:</label>
+                    <input type="url" id="webhook-url" placeholder="https://your-webhook-url.com/endpoint">
+                </div>
+
+                <div class="form-group">
+                    <label for="webhook-method">HTTP Method:</label>
+                    <select id="webhook-method">
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="PATCH">PATCH</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="webhook-headers">Custom Headers (JSON):</label>
+                    <textarea id="webhook-headers" rows="3" placeholder='{"Authorization": "Bearer token", "X-Custom": "value"}'></textarea>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Custom Selectors</h3>
+                <div class="form-group">
+                    <label for="custom-selectors">CSS Selectors (JSON):</label>
+                    <textarea id="custom-selectors" rows="4" placeholder='{"productName": ".product-title", "price": ".price-value", "description": ".product-desc"}'></textarea>
+                    <small>Define custom CSS selectors to extract specific data</small>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Auto-Scraping</h3>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="auto-scrape">
+                        Enable auto-scraping on page load
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="scrape-interval">Interval (seconds):</label>
+                    <input type="number" id="scrape-interval" min="5" max="300" value="30">
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="save-settings" class="primary-button">Save Settings</button>
+                <button id="reset-settings" class="secondary-button">Reset to Defaults</button>
+            </div>
+        </div>
+
+        <!-- Logs Tab -->
+        <div id="logs-tab" class="tab-content">
+            <div class="logs-section">
+                <div class="logs-header">
+                    <h3>Activity Logs</h3>
+                    <button id="clear-logs" class="secondary-button">Clear Logs</button>
+                </div>
+                <div id="logs-container" class="logs-container">
+                    <p class="placeholder">No logs yet. Start scraping to see activity.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="status-bar">
+                <span id="connection-status">🔴 Not configured</span>
+                <span id="last-scrape">Never</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
