@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webhook Scraper Options</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 16px; max-width: 720px; }
+      label { display: block; margin-bottom: 6px; font-weight: 600; }
+      input[type="text"] { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #ccc; }
+      button { margin-top: 8px; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }
+      .muted { color: #666; font-size: 12px; }
+      .row { display: flex; gap: 10px; align-items: center; }
+      .spacer { height: 10px; }
+      pre { background: #fafafa; padding: 8px; border: 1px solid #eee; border-radius: 6px; white-space: pre-wrap; word-break: break-word; }
+    </style>
+  </head>
+  <body>
+    <h2>Webhook Scraper Settings</h2>
+
+    <label for="webhookUrl">Webhook URL</label>
+    <input type="text" id="webhookUrl" placeholder="https://example.com/webhook" />
+    <div class="muted">Stored using chrome.storage.sync so it syncs across your Chrome profile.</div>
+    <div class="row">
+      <button id="saveBtn">Save</button>
+      <button id="testBtn">Test Send</button>
+    </div>
+
+    <div class="spacer"></div>
+    <div class="muted">Last payload:</div>
+    <pre id="lastPayload">No payload yet</pre>
+
+    <script src="options.js"></script>
+  </body>
+</html>
