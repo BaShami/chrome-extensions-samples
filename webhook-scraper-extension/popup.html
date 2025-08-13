@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webhook Scraper</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 12px; width: 320px; }
+      button { padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }
+      .row { display: flex; gap: 8px; align-items: center; }
+      pre { white-space: pre-wrap; word-break: break-word; max-height: 280px; overflow: auto; background: #fafafa; padding: 8px; border: 1px solid #eee; border-radius: 6px; }
+      input[type="text"] { width: 100%; padding: 6px 8px; border-radius: 6px; border: 1px solid #ccc; }
+      .muted { color: #666; font-size: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="row" style="margin-bottom: 8px;">
+      <button id="scrapeBtn">Scrape & Send</button>
+      <a href="#" id="openOptions">Options</a>
+    </div>
+    <div class="muted">Preview (last payload):</div>
+    <pre id="preview">No payload yet</pre>
+    <script src="popup.js"></script>
+  </body>
+</html>
