@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Icons Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .icon-container {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .icon-info {
+            text-align: center;
+        }
+        .icon-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .icon-display {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chrome Extension Icons Preview</h1>
+    <p>These are the SVG icons that will be used for your Chrome extension. You can convert them to PNG format using online tools or image editing software.</p>
+    
+    <div class="icon-container">
+        <div class="icon-info">
+            <h3>16x16 (Toolbar)</h3>
+            <div class="icon-display">
+                <img src="icons/icon16.svg" alt="16x16 icon" width="16" height="16">
+            </div>
+        </div>
+        
+        <div class="icon-info">
+            <h3>48x48 (Extensions Page)</h3>
+            <div class="icon-display">
+                <img src="icons/icon48.svg" alt="48x48 icon" width="48" height="48">
+            </div>
+        </div>
+        
+        <div class="icon-info">
+            <h3>128x128 (Chrome Web Store)</h3>
+            <div class="icon-display">
+                <img src="icons/icon128.svg" alt="128x128 icon" width="128" height="128">
+            </div>
+        </div>
+    </div>
+    
+    <h2>Converting to PNG</h2>
+    <p>To convert these SVG icons to PNG format (required by Chrome):</p>
+    <ol>
+        <li>Use online SVG to PNG converters like:
+            <ul>
+                <li><a href="https://convertio.co/svg-png/" target="_blank">Convertio</a></li>
+                <li><a href="https://cloudconvert.com/svg-to-png" target="_blank">CloudConvert</a></li>
+                <li><a href="https://www.svgviewer.dev/" target="_blank">SVG Viewer</a></li>
+            </ul>
+        </li>
+        <li>Or use image editing software like GIMP, Photoshop, or Figma</li>
+        <li>Ensure the output PNG files have the exact dimensions (16x16, 48x48, 128x128)</li>
+        <li>Replace the SVG files with PNG files in the icons directory</li>
+    </ol>
+    
+    <h2>Alternative: Use Online Icon Generators</h2>
+    <p>You can also create icons using online tools:</p>
+    <ul>
+        <li><a href="https://www.favicon-generator.org/" target="_blank">Favicon Generator</a></li>
+        <li><a href="https://favicon.io/" target="_blank">Favicon.io</a></li>
+        <li><a href="https://realfavicongenerator.net/" target="_blank">RealFaviconGenerator</a></li>
+    </ul>
+</body>
+</html>

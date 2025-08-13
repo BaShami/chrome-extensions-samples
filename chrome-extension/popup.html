@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scraper</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Data Scraper</h1>
+            <p>Scrape data and send to webhook</p>
+        </header>
+        
+        <div class="form-section">
+            <label for="webhookUrl">Webhook URL:</label>
+            <input type="url" id="webhookUrl" placeholder="https://your-webhook-url.com/endpoint">
+            
+            <label for="scrapingRules">Scraping Rules (JSON):</label>
+            <textarea id="scrapingRules" placeholder='{"title": "h1", "content": ".content", "links": "a[href]"}'>
+{
+  "title": "h1",
+  "content": ".content",
+  "links": "a[href]",
+  "images": "img[src]"
+}</textarea>
+            
+            <div class="button-group">
+                <button id="saveConfig" class="btn btn-primary">Save Configuration</button>
+                <button id="scrapeData" class="btn btn-success">Scrape Current Page</button>
+            </div>
+        </div>
+        
+        <div class="status-section">
+            <div id="status" class="status-message"></div>
+            <div id="scrapedData" class="scraped-data"></div>
+        </div>
+        
+        <div class="footer">
+            <button id="viewHistory" class="btn btn-secondary">View History</button>
+            <button id="clearHistory" class="btn btn-danger">Clear History</button>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

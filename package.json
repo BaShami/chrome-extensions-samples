@@ -1,43 +1,30 @@
 {
-  "name": "chrome-extensions-samples",
+  "name": "data-scraper-test-webhook",
   "version": "1.0.0",
-  "private": true,
-  "description": "Official samples for Chrome Extensions and the Chrome Apps platform.",
+  "description": "Test webhook server for the Data Scraper Chrome extension",
+  "main": "test-webhook-server.js",
   "scripts": {
-    "prettier": "npx prettier **/*.{md,html,json} -w",
-    "lint": "eslint **/*.js",
-    "lint:fix": "npm run lint -- --fix",
-    "prepare": "husky install"
+    "start": "node test-webhook-server.js",
+    "dev": "nodemon test-webhook-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GoogleChrome/chrome-extensions-samples.git"
+  "keywords": [
+    "webhook",
+    "chrome-extension",
+    "data-scraping",
+    "testing",
+    "express"
+  ],
+  "author": "Data Scraper Extension",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
   },
-  "keywords": [],
-  "author": "The Chrome Team",
-  "license": "Apache 2.0",
-  "bugs": {
-    "url": "https://github.com/GoogleChrome/chrome-extensions-samples/issues"
-  },
-  "homepage": "https://github.com/GoogleChrome/chrome-extensions-samples#readme",
   "devDependencies": {
-    "@eslint/js": "9.19.0",
-    "chrome-types": "0.1.335",
-    "eslint": "9.19.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-jest": "28.11.0",
-    "eslint-plugin-prettier": "5.4.1",
-    "globals": "15.14.0",
-    "husky": "9.1.6",
-    "lint-staged": "15.2.10",
-    "prettier": "3.3.3"
+    "nodemon": "^3.0.1"
   },
-  "lint-staged": {
-    "**/*.js": [
-      "npx eslint --fix"
-    ],
-    "**/*.{md,html,json}": [
-      "npx prettier --write"
-    ]
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
