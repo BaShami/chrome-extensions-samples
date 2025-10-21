@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Freshdesk AI Ticket Assistant",
+  "version": "0.1.0",
+  "description": "Extract Freshdesk ticket ID from the active tab, send a question to a webhook, and display the AI response.",
+  "action": {
+    "default_title": "Freshdesk AI Assistant",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "storage"],
+  "host_permissions": [
+    "https://hook.eu1.make.com/*",
+    "https://*.freshdesk.com/*"
+  ]
+}
