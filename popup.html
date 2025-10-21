@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshdesk AI Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon">🎫</div>
+                <h1>AI Assistant</h1>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <div class="input-group">
+                <label for="ticketId">Ticket ID</label>
+                <div class="input-wrapper">
+                    <input type="text" id="ticketId" readonly placeholder="Extracting ticket ID...">
+                    <div class="input-glow"></div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="question">Question for AI</label>
+                <div class="textarea-wrapper">
+                    <textarea id="question" placeholder="Enter your question here..." rows="4"></textarea>
+                    <div class="textarea-glow"></div>
+                </div>
+            </div>
+            
+            <button id="sendBtn" class="send-btn" disabled>
+                <span class="btn-text">Send Question</span>
+                <div class="btn-loader hidden">
+                    <div class="spinner"></div>
+                </div>
+            </button>
+        </div>
+        
+        <div class="response-container hidden" id="responseContainer">
+            <div class="response-header">
+                <h3>AI Response</h3>
+                <div class="response-id">
+                    <span>Response ID: </span>
+                    <code id="responseId"></code>
+                </div>
+            </div>
+            <div class="response-content" id="responseContent"></div>
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-indicator" id="statusIndicator">
+                <div class="status-dot"></div>
+                <span id="statusText">Ready</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
