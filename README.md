@@ -1,29 +1,113 @@
-# Chrome Extensions samples
+# Freshdesk AI Assistant Chrome Extension
 
-Official samples for Chrome Extensions and the Chrome Apps platform. (Chrome Apps are deprecated. Learn more [on the Chromium blog](https://blog.chromium.org/2020/08/changes-to-chrome-app-support-timeline.html)).
+A beautiful Chrome extension that extracts ticket IDs from Freshdesk URLs and allows users to send AI questions via webhook integration.
 
-For more information on extensions, see [Chrome Developers](https://developer.chrome.com).
+## Features
 
-## Explore samples
-
-The directory structure is as follows:
-
-- [api-samples/](api-samples/) - extensions focused on a single API package
-- [functional-samples/](functional-samples/) - full featured extensions spanning multiple API packages
-- [\_archive/apps/](_archive/apps/) - deprecated Chrome Apps platform (not listed below)
-- [\_archive/mv2/](_archive/mv2/) - resources for manifest version 2
-
-You can also use the [Samples](https://developer.chrome.com/docs/extensions/samples/) page to discover extensions by type, permissions, and extension API.
+- 🎫 **Automatic Ticket ID Extraction**: Automatically detects and extracts ticket IDs from Freshdesk URLs
+- 💬 **AI Question Interface**: Clean, modern interface for asking AI questions
+- 🚀 **Webhook Integration**: Sends questions to your Make.com webhook and receives responses
+- 🎨 **3D Modern UI**: Beautiful 3D card design with smooth animations
+- 📱 **Responsive Design**: Works perfectly on different screen sizes
+- ⚡ **Real-time Status**: Visual status indicators for different states
 
 ## Installation
 
-To experiment with these samples, please clone this repo and use 'Load Unpacked Extension'.
-Read more on [Development Basics](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
+1. **Download the Extension Files**
+   - Download all the files in this directory to a folder on your computer
 
-## Contributing
+2. **Enable Developer Mode in Chrome**
+   - Open Chrome and go to `chrome://extensions/`
+   - Toggle "Developer mode" in the top right corner
 
-Please see [the CONTRIBUTING file](/CONTRIBUTING.md) for information on contributing to the `chrome-extensions-samples` project.
+3. **Load the Extension**
+   - Click "Load unpacked"
+   - Select the folder containing the extension files
+   - The extension should now appear in your extensions list
 
-## License
+4. **Pin the Extension**
+   - Click the puzzle piece icon in Chrome's toolbar
+   - Find "Freshdesk AI Assistant" and click the pin icon
 
-`chrome-extensions-samples` are authored by Google and are licensed under the [Apache License, Version 2.0](/LICENSE).
+## Usage
+
+1. **Navigate to a Freshdesk Ticket**
+   - Go to any Freshdesk ticket page (e.g., `https://make-hq.freshdesk.com/a/tickets/1832652`)
+   - The extension will automatically extract the ticket ID
+
+2. **Open the Extension**
+   - Click the extension icon in your Chrome toolbar
+   - A beautiful 3D popup will appear with the ticket ID pre-filled
+
+3. **Ask Your Question**
+   - Type your question in the "Question to AI" field
+   - Click "Send to AI" or press Ctrl+Enter
+
+4. **View the Response**
+   - The extension will send your data to the webhook
+   - Once the response is received, it will display the AI response and response ID
+
+## Webhook Integration
+
+The extension sends data to your Make.com webhook in the following JSON format:
+
+```json
+{
+    "ticket #": "1832652",
+    "question to AI": "Your question here"
+}
+```
+
+Expected response format:
+
+```json
+{
+    "ticket #": "1832652",
+    "question to AI": "Your question here",
+    "response ID ": "resp_6886499ab6c881a3a78ae4268a7b988c0d3b71c1fceea478",
+    "reply": "AI response content"
+}
+```
+
+## Configuration
+
+To change the webhook URL, edit the `WEBHOOK_URL` constant in `popup.js`:
+
+```javascript
+const WEBHOOK_URL = 'https://your-webhook-url-here';
+```
+
+## File Structure
+
+```
+freshdesk-ai-assistant/
+├── manifest.json          # Extension manifest
+├── popup.html            # Popup HTML structure
+├── popup.css             # 3D styling and animations
+├── popup.js              # Main functionality
+├── content.js            # Content script for URL detection
+└── README.md             # This file
+```
+
+## Permissions
+
+- `activeTab`: To access the current tab's URL
+- `storage`: For potential future data storage
+- `https://make-hq.freshdesk.com/*`: To work on Freshdesk pages
+- `https://hook.eu1.make.com/*`: To send data to your webhook
+
+## Troubleshooting
+
+- **Ticket ID not detected**: Make sure you're on a Freshdesk ticket page with the correct URL format
+- **Webhook not responding**: Check your webhook URL and ensure it's accessible
+- **Extension not loading**: Make sure Developer mode is enabled in Chrome
+
+## Browser Compatibility
+
+- Chrome (Manifest V3)
+- Edge (Chromium-based)
+- Other Chromium-based browsers
+
+## Support
+
+If you encounter any issues or have suggestions for improvements, please check the browser console for error messages and ensure your webhook is properly configured.

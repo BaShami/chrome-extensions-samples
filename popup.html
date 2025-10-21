@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshdesk AI Assistant</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>🎫 Freshdesk AI Assistant</h1>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Ready</span>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="ticketId">Ticket ID</label>
+                    <div class="input-container">
+                        <input type="text" id="ticketId" readonly placeholder="Extracting from URL...">
+                        <span class="input-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="aiQuestion">Question to AI</label>
+                    <div class="input-container">
+                        <textarea id="aiQuestion" placeholder="Enter your question for the AI assistant..." rows="4"></textarea>
+                        <span class="input-icon">💬</span>
+                    </div>
+                </div>
+                
+                <button id="sendButton" class="send-button">
+                    <span class="button-text">Send to AI</span>
+                    <span class="button-icon">🚀</span>
+                </button>
+            </div>
+            
+            <div class="card-footer" id="responseSection" style="display: none;">
+                <div class="response-header">
+                    <h3>AI Response</h3>
+                    <div class="response-id">
+                        <span class="response-id-label">Response ID:</span>
+                        <span class="response-id-value" id="responseIdValue"></span>
+                    </div>
+                </div>
+                <div class="response-content" id="responseContent"></div>
+            </div>
+        </div>
+        
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
