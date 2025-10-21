@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Freshdesk AI Assistant</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <div class="card" id="card">
+        <div class="header">
+          <div class="title">Freshdesk AI Assistant</div>
+          <div class="subtitle">Ask AI about this ticket</div>
+        </div>
+
+        <div class="field">
+          <label for="ticketId">Ticket ID</label>
+          <input id="ticketId" type="text" placeholder="e.g. 1832652" readonly />
+        </div>
+
+        <div class="field">
+          <label for="question">Question to AI</label>
+          <textarea id="question" placeholder="Type your question... Keep under 440 characters" rows="4"></textarea>
+        </div>
+
+        <button id="sendBtn" class="btn primary">
+          <span class="btn-label">Send</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+
+        <div id="response" class="response hidden">
+          <div class="response-line"><span class="k">Response ID:</span> <span class="v" id="responseId">—</span></div>
+          <div class="response-line"><span class="k">Reply:</span> <span class="v" id="reply">—</span></div>
+          <div class="actions">
+            <button id="copyReply" class="btn ghost">Copy reply</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
