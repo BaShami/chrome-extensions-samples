@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Freshdesk AI Assistant",
+  "version": "1.0",
+  "description": "Extract ticket IDs from Freshdesk and send questions to AI webhook",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://make-hq.freshdesk.com/*",
+    "https://hook.eu1.make.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Freshdesk AI Assistant",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://make-hq.freshdesk.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
